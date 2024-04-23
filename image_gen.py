@@ -26,16 +26,24 @@ generator = ImageGenerator()
 # Define the background color
 background_color = (0, 255, 0)  # Green background
 
-# Generate 10 images with slightly different circle colors
-for i in range(10):
-    # Adjust the green hue for each iteration
-    hue = (i * 5) % 180  # Increment the hue by 5 for each iteration (180 is the maximum value for hue in OpenCV)
-    circle_color = (0, 230-hue, 0)  # Varying hue in BGR color space
+# # Generate 10 images with slightly different circle colors
+# for i in range(10):
+#     # Adjust the green hue for each iteration
+#     hue = (i * 5) % 180  # Increment the hue by 5 for each iteration (180 is the maximum value for hue in OpenCV)
+#     circle_color = (0, 230-hue, 0)  # Varying hue in BGR color space
 
-    # Set the background color and draw the circle
-    generator.background(background_color)
-    generator.circle((150, 150), 100, circle_color)
+#     # Set the background color and draw the circle
+#     generator.background(background_color)
+#     generator.circle((150, 150), 100, circle_color)
 
-    # Save the image with a filename indicating the hue
-    filename = f"image_{i+1}_hue_{230-hue}.jpg"
-    generator.save_image(filename)
+#     # Save the image with a filename indicating the hue
+#     filename = f"image_{i+1}_hue_{230-hue}.jpg"
+#     generator.save_image(filename)
+
+# Set the background color and draw the circle
+generator.background(background_color)
+generator.circle((150, 150), 100, (0,250,0))
+
+# Save the image with a filename indicating the hue
+filename = f"image_0_hue_250.jpg"
+generator.save_image(filename)
