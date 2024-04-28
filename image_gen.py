@@ -15,7 +15,7 @@ class ImageGenerator:
         cv2.circle(self.image, center, radius, color, -1)
 
     def save_image(self, filename):
-        folder = "gray_hues"
+        folder = "yellow_hues"
         if not os.path.exists(folder):
             os.makedirs(folder)
         cv2.imwrite(os.path.join(folder, filename), self.image)
@@ -24,13 +24,13 @@ class ImageGenerator:
 generator = ImageGenerator()
 
 # Define the background color
-background_color = (255, 255, 255)  # Green background
+background_color = (0, 255, 255)  # Green background
 
 # # Generate 10 images with slightly different circle colors
 for i in range(10):
     # Adjust the green hue for each iteration
-    hue = (i) % 180  # Increment the hue by 5 for each iteration (180 is the maximum value for hue in OpenCV)
-    circle_color = (245-hue, 245-hue, 245-hue)  # Varying hue in BGR color space
+    hue = (i*5) % 180  # Increment the hue by 5 for each iteration (180 is the maximum value for hue in OpenCV)
+    circle_color = (0, 245-hue, 245-hue)  # Varying hue in BGR color space
 
     # Set the background color and draw the circle
     generator.background(background_color)
